@@ -10,3 +10,6 @@ def Analytics(request):
 
 def Addentry(request):
     return render(request,'AddEntry.html')
+
+def Test(request):
+    return render(request,'test.html')

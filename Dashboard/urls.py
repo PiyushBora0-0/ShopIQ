@@ -4,4 +4,5 @@ urlpatterns = [
     path('', views.dashboard),
     path('AddEntry', views.Addentry),
     path('Analytics', views.Analytics),
+    path('test',views.Test),
 ]

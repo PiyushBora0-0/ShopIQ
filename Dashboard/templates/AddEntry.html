@@ -1,5 +1,43 @@
 {% extends "base.html" %}
 
+{% comment %} Bootstrap Template Used
+https://bbbootstrap.com/snippets/simple-shopping-cart-coupon-code-input-text-39165166
+{% endcomment %}
+
+
+
+
+
+{% block ForStyle %}
+<style>
+    .shopping-cart {
+        /* Styles for .container-fluid */
+        margin-top: 70px; 
+        
+        /* Styles for .card-body */
+        padding: 1.4rem;
+        flex: 1 1 auto;
+      }
+      
+      .shopping-cart .img-sm {
+        width: 80px;
+        height: 80px;
+      }
+      
+      .shopping-cart .itemside .info {
+        padding-left: 15px;
+        padding-right: 7px;  
+      }
+      
+      /* Other styles */
+      
+      .shopping-cart .btn-light {
+        /* button styles */
+      }
+      
+      /* Remove global body and font styles */
+</style>
+{% endblock ForStyle %}
 
 
 {% block Heading %}New Entry{% endblock Heading %}
@@ -23,6 +61,7 @@
         </div> {% endcomment %}
 
 
+    <div class="shopping-cart">
 
         <div class="container-fluid">
             <div class="row">
@@ -37,69 +76,18 @@
                                         <th scope="col" width="120">Price</th>
                                         <th scope="col" class="text-right d-none d-md-block" width="200"></th>
                                     </tr>
+                                
                                 </thead>
+                                
                                 <tbody>
-                                    <tr>
-                                        <td>
-                                            <figure class="itemside align-items-center">
-                                                <div class="aside"><img src="https://i.imgur.com/1eq5kmC.png" class="img-sm"></div>
-                                                <figcaption class="info"> <a href="#" class="title text-dark" data-abc="true">Tshirt with round nect</a>
-                                                    <p class="text-muted small">SIZE: L <br> Brand: MAXTRA</p>
-                                                </figcaption>
-                                            </figure>
-                                        </td>
-                                        <td> <select class="form-control">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                            </select> </td>
-                                        <td>
-                                            <div class="price-wrap"> <var class="price">$10.00</var> <small class="text-muted"> $9.20 each </small> </div>
-                                        </td>
-                                        <td class="text-right d-none d-md-block"> <a data-original-title="Save to Wishlist" title="" href="" class="btn btn-light" data-toggle="tooltip" data-abc="true"> <i class="fa fa-heart"></i></a> <a href="" class="btn btn-light" data-abc="true"> Remove</a> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <figure class="itemside align-items-center">
-                                                <div class="aside"><img src="https://i.imgur.com/hqiAldf.jpg" class="img-sm"></div>
-                                                <figcaption class="info"> <a href="#" class="title text-dark" data-abc="true">Flower Formal T-shirt</a>
-                                                    <p class="text-muted small">SIZE: L <br> Brand: ADDA </p>
-                                                </figcaption>
-                                            </figure>
-                                        </td>
-                                        <td> <select class="form-control">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                            </select> </td>
-                                        <td>
-                                            <div class="price-wrap"> <var class="price">$15</var> <small class="text-muted"> $12 each </small> </div>
-                                        </td>
-                                        <td class="text-right d-none d-md-block"> <a data-original-title="Save to Wishlist" title="" href="" class="btn btn-light" data-toggle="tooltip" data-abc="true"> <i class="fa fa-heart"></i></a> <a href="" class="btn btn-light btn-round" data-abc="true"> Remove</a> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <figure class="itemside align-items-center">
-                                                <div class="aside"><img src="https://i.imgur.com/UwvU0cT.jpg" class="img-sm"></div>
-                                                <figcaption class="info"> <a href="#" class="title text-dark" data-abc="true">Printed White Tshirt</a>
-                                                    <p class="small text-muted">SIZE:M <br> Brand: Cantabil</p>
-                                                </figcaption>
-                                            </figure>
-                                        </td>
-                                        <td> <select class="form-control">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                            </select> </td>
-                                        <td>
-                                            <div class="price-wrap"> <var class="price">$9</var> <small class="text-muted"> $6 each</small> </div>
-                                        </td>
-                                        <td class="text-right d-none d-md-block"> <a data-original-title="Save to Wishlist" title="" href="" class="btn btn-light" data-toggle="tooltip" data-abc="true"> <i class="fa fa-heart"></i></a> <a href="" class="btn btn-light btn-round" data-abc="true"> Remove</a> </td>
-                                    </tr>
+                                    
+                                <!--New entery Inserted Here-->
+                                
                                 </tbody>
                             </table>
+                        <!--Button To add New entries-->
+                        <button id="myButton">Add Row</button>
+
                         </div>
                     </div>
                 </aside>
@@ -134,7 +122,117 @@
             </div>
         </div>
 
+    </div>
+
+
+
+
+
+
+
+
+
+<script>
+    
+    const html2=`
+    <tr>
+      <td>
+          <figure class="itemside align-items-center">
+              <div class="aside"><img src="https://i.imgur.com/1eq5kmC.png" class="img-sm"></div>
+              <figcaption class="info"> <p>Tshirt with round nect</p>
+                  <p class="text-muted small">SIZE: L <br> Brand: MAXTRA</p>
+              </figcaption>
+          </figure>
+      </td>
+      <td> <select class="form-control" id = "quantity">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+          </select> </td>
+      <td>
+          <div class="price-wrap"> <var class="price">$10.00</var> <small class="text-muted"> $9.20 each </small> </div>
+      </td>
+      <td class="text-right d-none d-md-block"> <a data-original-title="Save to Wishlist" title="" href="" class="btn btn-light" data-toggle="tooltip" data-abc="true"> <i class="fa fa-heart"></i></a> <a href="" class="btn btn-light" data-abc="true"> Remove</a> </td>
+  </tr>`;
+</script>
+
+
+
+
+    
+    <script>
+        const html = `
+        <tr>
+          <td>
+            <figure class="itemside align-items-center">
+              <div class="aside">
+                <img src="https://i.imgur.com/1eq5kmC.png" class="img-sm">
+              </div>
+              <figcaption class="info">
+                <p>Tshirt with round nect</p>
+                <p class="text-muted small">SIZE: L <br> Brand: MAXTRA</p>
+              </figcaption>
+            </figure>
+          </td>
+          // rest of HTML
+        </tr>
+      `;
+
+
+
+      
+
+
+
+
+    
+        const button = document.getElementById('myButton');
+        const onButtonClick = () => {
+          const tbody = document.querySelector('tbody');
+          tbody.insertAdjacentHTML('beforeend', html2);
+        };
+    
+        button.addEventListener('click', onButtonClick);
+
+        
+        
+
+
+        
+        
+        // Bind event listener
+     
+        
+    document.addEventListener('DOMContentLoaded', () => {
+        tbody.insertAdjacentHTML('beforeend', row);
+
+        // Get added elements
+        const qty = tbody.querySelector('.quantity'); 
+        const price = tbody.querySelector('.price');
+
+        updatePrice(qty, price);
+
+        
+        const button = document.getElementById('myButton');
+
+        qtyElement.addEventListener('change', () => {
+
+          // update price logic
+
+            // Get selected quantity
+            const qty = quantitySelect.value;
+            
+            // Calculate price
+            let totalPrice = qty * 10; // 10 is base price
+            
+            // Update price text
+            price.innerText = `$${totalPrice}.00`; 
+
+
+        });
+    });
+
+      </script>
+
 {% endblock body %}
-
-
-

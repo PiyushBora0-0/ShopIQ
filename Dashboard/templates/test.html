@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Row Demo</title>
+</head>
+<body>
+
+  <button id="myButton">Add Row</button>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Row will be inserted here -->
+    </tbody>
+  </table>
+
+  <script>
+    const html = `
+    <tr>
+      <td>
+        <figure class="itemside align-items-center">
+          <div class="aside">
+            <img src="https://i.imgur.com/1eq5kmC.png" class="img-sm">
+          </div>
+          <figcaption class="info">
+            <p>Tshirt with round nect</p>
+            <p class="text-muted small">SIZE: L <br> Brand: MAXTRA</p>
+          </figcaption>
+        </figure>
+      </td>
+      // rest of HTML
+    </tr>
+  `;
+
+    const button = document.getElementById('myButton');
+    const onButtonClick = () => {
+      const tbody = document.querySelector('tbody');
+      tbody.insertAdjacentHTML('beforeend', html);
+    };
+
+    button.addEventListener('click', onButtonClick);
+  </script>
+
+</body>
+</html>
