@@ -13,3 +13,6 @@ def Addentry(request):
 
 def Test(request):
     return render(request,'test.html')
+
+def SingleEntry(request):
+    return render(request,'SingleEntry.html')

@@ -5,4 +5,5 @@ urlpatterns = [
     path('AddEntry', views.Addentry),
     path('Analytics', views.Analytics),
     path('test',views.Test),
+    path('SingleEntry',views.SingleEntry),
 ]
