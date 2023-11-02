@@ -1,52 +1,212 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Add Row Demo</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-  <button id="myButton">Add Row</button>
-  
-  <table>
-    <thead>
-      <tr>
-        <th>Product</th>
-        <th>Quantity</th>
-        <th>Price</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Row will be inserted here -->
-    </tbody>
-  </table>
+{% comment %} Bootstrap Template Used
+https://bbbootstrap.com/snippets/simple-shopping-cart-coupon-code-input-text-39165166
+{% endcomment %}
 
-  <script>
-    const html = `
+
+
+
+
+{% block ForStyle %}
+<style>
+    .shopping-cart {
+        /* Styles for .container-fluid */
+        margin-top: 70px; 
+        
+        /* Styles for .card-body */
+        padding: 1.4rem;
+        flex: 1 1 auto;
+      }
+      
+      .shopping-cart .img-sm {
+        width: 80px;
+        height: 80px;
+      }
+      
+      .shopping-cart .itemside .info {
+        padding-left: 15px;
+        padding-right: 7px;  
+      }
+      
+      /* Other styles */
+      
+      .shopping-cart .btn-light {
+        /* button styles */
+      }
+      
+      /* Remove global body and font styles */
+</style>
+{% endblock ForStyle %}
+
+
+{% block Heading %}New Entry{% endblock Heading %}
+
+
+{% block body %}
+
+    {% include "navbar.html" %}
+
+        {% comment %} <h1>Add new entry</h1>
+
+        <div class="flex-container" style ="text-align: center; width:50%;  justify-content: center;">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              </div>
+        </div> {% endcomment %}
+
+
+    <div class="shopping-cart">
+
+        <div class="container-fluid">
+            <div class="row">
+                <aside class="col-lg-9">
+                    <div class="card">
+                        <div class="table-responsive">
+                            <table class="table table-borderless table-shopping-cart">
+                                <thead class="text-muted">
+                                    <tr class="small text-uppercase">
+                                        <th scope="col">Product</th>
+                                        <th scope="col" width="120">Quantity</th>
+                                        <th scope="col" width="120">Price</th>
+                                        <th scope="col" class="text-right d-none d-md-block" width="200"></th>
+                                    </tr>
+                                
+                                </thead>
+                                
+                                <tbody>
+                                    
+                                <!--New entery Inserted Here-->
+                                
+                                </tbody>
+                            </table>
+                        <!--Button To add New entries-->
+                        <button id="myButton">Add Row</button>
+
+                        </div>
+                    </div>
+                </aside>
+                <aside class="col-lg-3">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <form>
+                                <div class="form-group"> <label>Have coupon?</label>
+                                    <div class="input-group"> <input type="text" class="form-control coupon" name="" placeholder="Coupon code"> <span class="input-group-append"> <button class="btn btn-primary btn-apply coupon">Apply</button> </span> </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <dl class="dlist-align">
+                                <dt>Total price:</dt>
+                                <dd class="text-right ml-3">$69.97</dd>
+                            </dl>
+                            <dl class="dlist-align">
+                                <dt>Discount:</dt>
+                                <dd class="text-right text-danger ml-3">- $10.00</dd>
+                            </dl>
+                            <dl class="dlist-align">
+                                <dt>Total:</dt>
+                                <dd class="text-right text-dark b ml-3"><strong>$59.97</strong></dd>
+                            </dl>
+                            <hr> <a href="#" class="btn btn-out btn-primary btn-square btn-main" data-abc="true"> Make Purchase </a> <a href="#" class="btn btn-out btn-success btn-square btn-main mt-2" data-abc="true">Continue Shopping</a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+<script>
+    
+    const html2=`
     <tr>
       <td>
-        <figure class="itemside align-items-center">
-          <div class="aside">
-            <img src="https://i.imgur.com/1eq5kmC.png" class="img-sm">
-          </div>
-          <figcaption class="info">
-            <p>Tshirt with round nect</p>
-            <p class="text-muted small">SIZE: L <br> Brand: MAXTRA</p>
-          </figcaption>
-        </figure>
+          <figure class="itemside align-items-center">
+              <div class="aside"><img src="https://i.imgur.com/1eq5kmC.png" class="img-sm"></div>
+              <figcaption class="info"> <p>Tshirt with round nect</p>
+                  <p class="text-muted small">SIZE: L <br> Brand: MAXTRA</p>
+              </figcaption>
+          </figure>
       </td>
-      // rest of HTML
-    </tr>
-  `;
+      <td> <select class="form-control" id = "quantity">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+          </select> </td>
+      <td>
+          <div class="price-wrap"> <input type="number"><var class="price">$10.00</var> <small class="text-muted"> $9.20 each </small> </div>
+      </td>
+      <td class="text-right d-none d-md-block"> <a data-original-title="Save to Wishlist" title="" href="" class="btn btn-light" data-toggle="tooltip" data-abc="true"> <i class="fa fa-heart"></i></a> <a href="" class="btn btn-light" data-abc="true"> Remove</a> </td>
+  </tr>`;
+</script>
 
-    const button = document.getElementById('myButton');
-    const onButtonClick = () => {
-      const tbody = document.querySelector('tbody');
-      tbody.insertAdjacentHTML('beforeend', html);
-    };
 
-    button.addEventListener('click', onButtonClick);
-  </script>
 
-</body>
-</html>
+
+    
+    <script>
+        const html = `
+        <tr>
+          <td>
+            <figure class="itemside align-items-center">
+              <div class="aside">
+                <img src="https://i.imgur.com/1eq5kmC.png" class="img-sm">
+              </div>
+              <figcaption class="info">
+                <p>Tshirt with round nect</p>
+                <p class="text-muted small">SIZE: L <br> Brand: MAXTRA</p>
+              </figcaption>
+            </figure>
+          </td>
+          // rest of HTML
+        </tr>
+      `;
+
+
+
+      
+
+
+
+
+    
+        const button = document.getElementById('myButton');
+        const onButtonClick = () => {
+          const tbody = document.querySelector('tbody');
+          tbody.insertAdjacentHTML('beforeend', html2);
+        };
+    
+        button.addEventListener('click', onButtonClick);
+
+        
+        
+
+
+        
+        
+        // Bind event listener
+     
+    document.addEventListener('DOMContentLoaded', () => {
+        const button = document.getElementById('myButton');        
+    });
+
+      </script>
+
+{% endblock body %}

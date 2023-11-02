@@ -83,14 +83,23 @@ https://bbbootstrap.com/snippets/simple-shopping-cart-coupon-code-input-text-391
                                     
                                 <!--New entery Inserted Here-->
                                 
+                                <td class="text-right d-none d-md-block"> <a data-original-title="Save to Wishlist" title="" href="" class="btn btn-light" data-toggle="tooltip" data-abc="true"> <i class="fa fa-heart"></i></a> </td>
                                 </tbody>
+
                             </table>
+                            
                         <!--Button To add New entries-->
                         <button id="myButton">Add Row</button>
 
                         </div>
+                   
+                    </div>
+
+                    <div style="margin:20px 0px ; flex:auto">
+                        <a href="" style="width:100px" class="btn btn-light " data-abc="true"> Clear</a>
                     </div>
                 </aside>
+                
                 <aside class="col-lg-3">
                     <div class="card mb-3">
                         <div class="card-body">
@@ -151,9 +160,9 @@ https://bbbootstrap.com/snippets/simple-shopping-cart-coupon-code-input-text-391
               <option>4</option>
           </select> </td>
       <td>
-          <div class="price-wrap"> <var class="price">$10.00</var> <small class="text-muted"> $9.20 each </small> </div>
+          <div class="price-wrap"> <input type="number" value="Rs"> <small class="text-muted"> $9.20 each </small> </div>
       </td>
-      <td class="text-right d-none d-md-block"> <a data-original-title="Save to Wishlist" title="" href="" class="btn btn-light" data-toggle="tooltip" data-abc="true"> <i class="fa fa-heart"></i></a> <a href="" class="btn btn-light" data-abc="true"> Remove</a> </td>
+      
   </tr>`;
 </script>
 
@@ -203,34 +212,8 @@ https://bbbootstrap.com/snippets/simple-shopping-cart-coupon-code-input-text-391
         
         // Bind event listener
      
-        
     document.addEventListener('DOMContentLoaded', () => {
-        tbody.insertAdjacentHTML('beforeend', row);
-
-        // Get added elements
-        const qty = tbody.querySelector('.quantity'); 
-        const price = tbody.querySelector('.price');
-
-        updatePrice(qty, price);
-
-        
-        const button = document.getElementById('myButton');
-
-        qtyElement.addEventListener('change', () => {
-
-          // update price logic
-
-            // Get selected quantity
-            const qty = quantitySelect.value;
-            
-            // Calculate price
-            let totalPrice = qty * 10; // 10 is base price
-            
-            // Update price text
-            price.innerText = `$${totalPrice}.00`; 
-
-
-        });
+        const button = document.getElementById('myButton');        
     });
 
       </script>
