@@ -61,6 +61,9 @@ https://bbbootstrap.com/snippets/simple-shopping-cart-coupon-code-input-text-391
                                         <th scope="col">Product</th>
                                         <th scope="col" width="120">Quantity</th>
                                         <th scope="col" width="120">Price</th>
+                                        <th scope="col" width="120">Advance</th>
+                                        <th scope="col" width="120">Balance</th>
+                                        <th scope="col" width="200">Reciept Number</th>
                                         <th scope="col" class="text-right d-none d-md-block" width="200"></th>
                                     </tr>
                                 
@@ -70,42 +73,100 @@ https://bbbootstrap.com/snippets/simple-shopping-cart-coupon-code-input-text-391
                                     
                                     <tr>
                                         <td>
-                                            <figure class="itemside align-items-center">
-                                                <div class="aside"><img src="https://cdn.pixabay.com/photo/2018/09/03/11/51/pictures-3651039_640.png" class="img-sm"></div>
-                                                <figcaption class="info"> <div> 
-                                                    <p>Image Size</p>
-                                                    <select class="form-control" id = "quantity" style="width: 100px;">
-                                                    <option>4X7</option>
-                                                    <option>5X7</option>
-                                                    <option>8X12</option>
-                                                    <option>12X15</option>
-                                                </select></div> 
-                                                    <p class="text-muted small">SIZE: L <br> Brand: MAXTRA</p>
-                                                </figcaption>
-                                            </figure>
-                                        
+                                        <div class="aside"><img src="https://cdn.pixabay.com/photo/2018/09/03/11/51/pictures-3651039_640.png" class="img-sm"></div>
+
+                                        <figcaption class="info">
+                                          
+                                          <div>
+                                          
+                                            <p>Image Size</p>
+                                            <!--form-->
+
+                                            <form action="/action_page.php" method="get">
+                
+            <!--IMAGE SIZE-->
+                                            <input list="Sizes" name="ImageSize" id="ImageSize"  style="border-width: 1px; border: 1px solid rgba(0, 0, 0, 0.5); border-radius: 5px; width:50px;">
+                                            <datalist id="Sizes">
+
+                                              <option value="4X7">
+                                              
+                                              <option value="5X7">
+                                              
+                                              <option value="8X12">
+                                              
+                                              <option value="12X15">
+                                              
+                                            </datalist>
+                                            
+                                            
+                                        </form> 
+                                          </div>
+                                          
+                                          <p class="text-muted small">SIZE: L <br> Brand: MAXTRA</p>
+                                          
+                                        </figcaption>
+
+                                    </td>
+                <!--Quantity-->
                                         <td> <select class="form-control" id = "quantity" >
+                                            <option value="">-- Select an option --</option>
                                                 <option>1</option>
                                                 <option>2</option>
                                                 <option>3</option>
                                                 <option>4</option>
+                                                <option >5</option>
+                                                <option >6</option>
+                                                <option >7</option>
+                                                <option >8</option>
                                             </select> </td>
+
+
+                <!--Price-->
                                         <td>
-                                            <div class="price-wrap" > <input type="number" value="Rs" style="width: 100px;"> <small class="text-muted" > $9.20 each </small> </div>
+                                            <div class="price-wrap" > <input type="number"  style="width: 100px;"> <small class="text-muted" > ₹20 each </small> </div>
+                                        </td>
+
+
+                <!--Advance-->
+                                        <td>
+                                            <div class="advance-wrap" > <input type="number"  style="width: 100px;"> <small class="text-muted" > Paid in advance </small> </div>
+                                        </td>
+
+
+                <!--Balance-->
+                                        <td>
+                                            <div class="balance-wrap" > <input type="number"  style="width: 100px;"> <small class="text-muted" > Pending balance </small> </div>
                                         </td>
                                         
+                
+                 <!--Reciept Number-->
+                                        <td>
+                                            <div class="reciept-wrap" style="widtH:100px;" > <input type="number"  style="width: 100px;"> <small class="text-muted" > Reciept number </small> </div>
+                                        </td>
+
+                
                                     </tr>
                                 
-                                <td class="text-right d-none d-md-block" > <a data-original-title="Save to Wishlist" title="" href="" class="btn btn-light" data-toggle="tooltip" data-abc="true"> <i class="fa fa-heart"></i></a> </td>
+                              
                                 </tbody>
 
                             </table>
+                            
+                           
+                            
                        
                         </div>
                    
                     </div>
+        <!--SUBMIT BUTTON-->
+
+
+                    <div style="display: flex; justify-content: center;">
+                         <button type="submit" class="btn btn-success my-4" >Submit</button>
+                    </div>
+
                 </aside>
-                
+               
                 <aside class="col-lg-3">
                     <div class="card mb-3">
                         <div class="card-body">
